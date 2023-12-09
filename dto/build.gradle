@@ -1,0 +1,12 @@
+apply plugin: "io.micronaut.minimal.library"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly("io.projectreactor:reactor-core")
+    compileOnly("io.micronaut:micronaut-http")
+    compileOnly("io.micronaut.security:micronaut-security")
+    compileOnly("jakarta.validation:jakarta.validation-api")
+}

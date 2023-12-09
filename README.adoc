@@ -1,0 +1,24 @@
+== Issue1: @Introspected cannot be used as meta-annotation from module
+
+. `./gradlew run`
+. make a call
+. get Introspection error but should be validation error
+
+.Request to test issue with `@Introspected` annotation
+[source, shell]
+----
+curl -X POST -H "Content-Type: application/json" -d '{ "valueNum": 42.42 }' http://localhost:8080/demo/form
+----
+
+== Issue 2: @Nullable and @NotBlank cannot be used together
+
+. Solve issue one or comment out `@Introspected` in `DemoDto.java`
+. `./gradlew run`
+. make a call
+. There should be no error but there is a validation error for `valueStrBlank` field
+
+.Request to test issue with `@Nullable` and `@NotBlank` together
+[source, shell]
+----
+curl -X POST -H "Content-Type: application/json" -d '{ "valueStr": "test"  }' http://localhost:8080/demo/form-with-nullable-blank
+----
