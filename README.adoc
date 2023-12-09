@@ -12,7 +12,6 @@ curl -X POST -H "Content-Type: application/json" -d '{ "valueNum": 42.42 }' http
 
 == Issue 2: @Nullable and @NotBlank cannot be used together
 
-. Solve issue one or comment out `@Introspected` in `DemoDto.java`
 . `./gradlew run`
 . make a call
 . There should be no error but there is a validation error for `valueStrBlank` field
@@ -21,4 +20,16 @@ curl -X POST -H "Content-Type: application/json" -d '{ "valueNum": 42.42 }' http
 [source, shell]
 ----
 curl -X POST -H "Content-Type: application/json" -d '{ "valueStr": "test"  }' http://localhost:8080/demo/form-with-nullable-blank
+----
+
+== Issue 3: @Nullable and @QueryValue cannot be used together
+
+. `./gradlew run`
+. make a call
+. There should be no error but there is a validation error about required query parameter
+
+.Request to test issue with `@Nullable` and `@QueryValue` on interface
+[source, shell]
+----
+curl -X GET  http://localhost:8080/demo/required-nullable-issue
 ----

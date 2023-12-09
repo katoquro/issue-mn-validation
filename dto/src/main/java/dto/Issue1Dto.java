@@ -1,6 +1,5 @@
 package dto;
 
-import io.micronaut.core.annotation.Introspected;
 import io.micronaut.core.annotation.Nullable;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -11,14 +10,14 @@ import java.math.BigDecimal;
 //@Introspected(
 //        accessKind = {Introspected.AccessKind.FIELD, Introspected.AccessKind.METHOD},
 //        visibility = Introspected.Visibility.PUBLIC)
-public class DemoDto {
+public class Issue1Dto {
     public @NotBlank String valueStr;
 
-    public static class Form extends DemoDto {
+    public static class Form extends Issue1Dto {
         public @Min(0) BigDecimal valueNum;
     }
 
-    public static class FormWithNullableBlank extends DemoDto {
+    public static class FormWithNullableBlank extends Issue1Dto {
         public @Nullable @NotBlank String valueStrBlank;
     }
 }
